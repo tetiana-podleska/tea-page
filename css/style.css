@@ -16,6 +16,8 @@ a {
 button {
   padding: 0;
   border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 ul {
@@ -23,6 +25,7 @@ ul {
 }
 
 body {
+  position: relative;
   font-family: "Open Sans", sans-serif;
   /* font-family: 'Cormorant', serif; */
   font-size: 20px;
@@ -50,12 +53,34 @@ body {
 }
 
 .menu__btn {
+  position: relative;
   width: 40px;
   height: 20px;
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  cursor: pointer;
+  z-index: 2;
+}
+
+.menu--close {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  transition: background-color 0.3s ease;
+}
+
+.menu--close.menu--open {
+  display: block;
+}
+
+.mobile-nav,
+.menu__close {
+  display: none;
 }
 
 .menu__btn span {
@@ -65,21 +90,23 @@ body {
 }
 
 .menu__list {
+  position: relative;
   margin-left: 85px;
   display: flex;
   align-items: center;
   gap: 0 65px;
   font-size: 18px;
   font-weight: 400;
+  z-index: 3;
 }
 
-.user__actions {
+.user-actions {
   display: flex;
   align-items: center;
   gap: 0 20px;
 }
 
-.user__actions-item--search {
+.user-actions__item--search {
   margin-left: 80px;
 }
 
@@ -148,14 +175,58 @@ body {
 
 @media (max-width: 860px) {
   .menu__list {
-    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 480px;
+    margin: 0 auto;
+    background-color: #fff;
+    display: block;
+    text-align: center;
+    padding-top: 60px;
+    transform: translateY(-100%);
+    transition: transform 0.6s ease;
+  }
+  .menu__list.menu__list--open {
+    transform: translateY(0%);
+  }
+  .menu__close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  .menu__item {
+    margin-bottom: 30px;
+    font-family: "Cormorant", serif;
+    font-size: 24px;
+  }
+  .mobile-menu {
+    margin: 60px 30px;
+    padding-top: 60px;
+    border-top: 2px solid #f7f2ea;
+  }
+  .mobile-actions {
+    height: 60px;
+    padding: 0 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f7f2ea;
   }
   .menu__btn {
     display: flex;
   }
+  .mobile-nav,
+  .menu__close {
+    display: block;
+  }
   .menu {
     order: -1;
     margin-right: 0;
+  }
+  .mobile-menu__item {
+    margin-bottom: 35px;
   }
   .logo {
     margin-left: auto;
@@ -199,6 +270,9 @@ body {
   }
   .logo img {
     width: 40px;
+  }
+  .menu__list {
+    width: 360px;
   }
 }
 
