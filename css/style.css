@@ -8,6 +8,20 @@ html {
   box-sizing: inherit;
 }
 
+html,
+body {
+  height: 100%;
+}
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex-grow: 1;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -534,6 +548,25 @@ body {
   .prioritise__list {
     gap: 30px 210px;
   }
+
+  .footer__blockquote {
+    width: 270px;
+  }
+  .footer__blockquote-text {
+    margin-top: 0;
+  }
+  .footer__inner {
+    margin-bottom: 55px;
+  }
+  .footer__copy {
+    margin-right: 85px;
+  }
+  .footer__nav-logo {
+    margin-right: 35px;
+  }
+  .footer__contacts {
+    width: 270px;
+  }
 }
 
 @media (max-width: 860px) {
@@ -601,6 +634,7 @@ body {
   .header__inner {
     padding: 0 64px;
   }
+
   .blockquote__text {
     max-width: 640px;
   }
@@ -609,6 +643,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
   }
+
   .review__item:last-child {
     display: block;
   }
@@ -616,6 +651,7 @@ body {
     flex-wrap: wrap;
     gap: 30px 76px;
   }
+
   .main-blog__item {
     flex-basis: 542px;
   }
@@ -628,11 +664,29 @@ body {
   .main-blog__list {
     gap: 30px 20px;
   }
+
   .mailing-list__text {
     flex-basis: 640px;
   }
+
   .prioritise__list {
     gap: 30px 133px;
+  }
+
+  .footer__inner {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr;
+  }
+  .footer__products,
+  .footer__company {
+    grid-row: span 3;
+  }
+  .footer__contacts {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+  }
+  .footer__copy {
+    margin-right: 120px;
   }
 }
 
@@ -666,12 +720,15 @@ body {
   .logo img {
     width: 40px;
   }
+
   .menu__list {
     width: 360px;
   }
+
   .assortment {
     margin-bottom: 60px;
   }
+
   .review {
     padding: 50px 0;
   }
@@ -681,12 +738,14 @@ body {
   .review__item {
     flex-basis: 220px;
   }
+
   .main-blog {
     padding: 60px 0;
   }
   .main-blog__item-img {
     max-width: 230px;
   }
+
   .mailing-list {
     padding: 50px 0;
   }
@@ -704,8 +763,60 @@ body {
   .mailing-list__btn {
     padding: 10px 39px;
   }
+
   .prioritise {
     padding: 60px 0;
+  }
+
+  .footer__inner {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .footer__blockquote {
+    width: 100%;
+  }
+  .footer__blockquote-text {
+    margin-top: 50px;
+    margin-bottom: 10px;
+  }
+  .footer__blockquote-author span {
+    display: inline-block;
+  }
+  .footer__contacts {
+    width: 100%;
+    margin-top: 50px;
+  }
+  .footer__contacts-title {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .footer__contacts-text {
+    text-align: center;
+  }
+  .footer__nav {
+    flex-wrap: nowrap;
+  }
+  .footer__social {
+    margin-left: 30px;
+  }
+  .footer__copy {
+    margin-right: auto;
+  }
+
+  .footer__products {
+    margin-right: auto;
+    padding-right: 20px;
+  }
+  .footer__company {
+    margin-right: 55px;
+    padding-right: 20px;
+  }
+  .footer__products-title,
+  .footer__company-title {
+    margin-bottom: 30px;
+  }
+  .footer {
+    padding: 50px 0 10px;
   }
 }
 
@@ -714,15 +825,19 @@ body {
     margin-bottom: 30px;
     font-size: 24px;
   }
+
   .logo {
     margin-right: 50px;
   }
+
   .user__actions-item--search {
     margin-left: 0;
   }
+
   .header__inner {
     padding: 10px 0;
   }
+
   .top__inner {
     min-height: 367px;
   }
@@ -734,17 +849,20 @@ body {
     font-size: 13px;
     margin-bottom: 30px;
   }
+
   .blockquote__text {
     max-width: 340px;
     margin-top: 70px;
     margin-bottom: 80px;
   }
+
   .assortment {
     margin-bottom: 80px;
   }
   .assortment__img {
     max-width: 170px;
   }
+
   .review__item {
     flex-basis: 100%;
   }
@@ -752,6 +870,7 @@ body {
   .review__item:first-child {
     display: none;
   }
+
   .main-blog {
     padding: 50px 0;
   }
@@ -771,9 +890,11 @@ body {
   .main-blog__item-title {
     min-height: auto;
   }
+
   .mailing-list__email {
     width: 205px;
   }
+
   .prioritise {
     padding: 50px 0;
   }
@@ -786,5 +907,21 @@ body {
   .prioritise__text {
     font-size: 10px;
     font-weight: 400;
+  }
+
+  .footer__company {
+    margin-right: 0;
+    padding-right: 15px;
+  }
+  .footer__nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .footer__products {
+    padding-right: 10px;
+  }
+  .footer__social {
+    margin-right: auto;
+    margin-left: auto;
   }
 }
